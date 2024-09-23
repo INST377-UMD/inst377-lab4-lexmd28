@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <title>Lab 4</title>
+        <link rel ='stylesheet' href = "Lab4DGomez.css">
+    </head>
+    <header>
+        <h1 id="hdr">Douglas Gomez Lab 4</h1>
+        <br>
+    </header>
+    <div class="container">
+    <body id="Body">
+        <div class="name-box">
+            <form id="alertMeForm" onsubmit="return(alerter())">
+                <label id = "nameLabel">Name: </label>
+                <input id="name"  type="text">
+                <input type="submit" value="Alert me!">
+            </form>
+        <script type="text/javascript">
+            function alerter() {
+                const name = document.getElementById("name");
+                const namevalue = name.value;
+                console.log(namevalue);
+                if (namevalue) {
+                alert(namevalue);
+                return false;
+                }
+
+                return true;
+            }
+        </script>
+            
+        </div>
+        <div class="change-color-box">
+            <button id="change-color" onclick="changeColor()">Change color</button>
+            <script type="text/javascript">
+                function changeColor() {
+                    if(document.getElementById("Body").style.backgroundColor == 'grey') {
+                        const t = document.getElementById("Body").style.backgroundColor = 'red';
+                    } else {
+                        const t = document.getElementById("Body").style.backgroundColor = 'grey';
+                    }
+                }
+            </script>
+        </div>
+        <div class="text-tester-box">
+            <form name ="textValidator" onsubmit="return(formValidation())">
+                <label>Text Tester: </label>
+                <input id="textBox" type = "text">
+                <input type="submit" value="Validate Text" id="textTester">
+            </form>
+        </div>
+        <script type="text/javascript">
+            function formValidation() {
+                const validationRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                if (validationRegex.test(document.textValidator.textBox.value)) {
+                    alert('How about... nah :(');
+                    return false;
+                }
+                return true;
+            }
+        </script>
+        <div class="add-text">
+            <button id=" addText" onclick="return(addText())">add text</button>
+            <script>
+                function addText() {
+                        var text = document.getElementById("hdr").innerText;
+                        console.log(text);
+                        if(text = text) {
+                            document.getElementById("hdr").innerText="Douglas Gomez Lab 4 - Add Text";
+                            return false;
+                        }
+                        return true;
+                }
+            </script>
+        </div>
+    </div>   
+    </body>
+</html>
